@@ -1,11 +1,11 @@
 import java.util.Scanner;
-import java.util.Random;
+
 public class Main
 {
     public static void main(String[]args)
     {
         Scanner scan = new Scanner(System.in);
-        Random random = new Random();
+
         System.out.println("Введите число строк: ");
         int a = scan.nextInt();
         System.out.println("Введите число стобцов");
@@ -15,8 +15,7 @@ public class Main
         {
             for (int j = 0; j < b; j++)
             {
-                Q[i][j] = random.nextInt(10);
-
+                Q[i][j] = scan.nextInt();
             }
         }
         System.out.println("Было: ");
