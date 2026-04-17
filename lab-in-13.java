@@ -2,149 +2,100 @@ import java.util.Scanner;
 
 interface Product
 {
-//    void setname(String name);
     String getname();
-//    void setprice(double price);
     double getprice();
-//    void setrating(double rating);
     double getrating();
 }
 interface User
 {
-//    void setlogin();
      String getlogin();
-//    void setpassword();
      String getpassword();
 }
-
 class ClassOne implements Product
 {
-    private String name;
-    private double price;
-    private double rating;
-    ClassOne(String name, double price, double rating)
+    private String Name;
+    private double Price;
+    private double Rating;
+    ClassOne(String Name, double Price, double Rating)
     {
-        this.name = name;
-        this.price = price;
-        this.rating = rating;
+        this.Name = Name;
+        this.Price = Price;
+        this.Rating = Rating;
     }
-//    @Override
-//    public void setname(String name)
-//    {
-//        this.name = name;
-//    }
-//    @Override
-//    public void setrating(double rating)
-//    {
-//        this.rating = rating;
-//    }
-//    @Override
-//    public void setprice(double price)
-//    {
-//        this.price = price;
-//    }
+
     @Override
     public String getname()
     {
-        return this.name;
+        return this.Name;
     }
     @Override
     public double getprice()
     {
-        return this.price;
+        return this.Price;
     }
     @Override
     public double getrating()
     {
-        return this.rating;
+        return this.Rating;
     }
 }
 class ClassTwo implements Product
 {
-    private String name;
-    private double price;
-    private double rating;
-    ClassTwo(String name, double price, double rating)
+    private String Name;
+    private double Price;
+    private double Rating;
+    ClassTwo(String Name, double Price, double Rating)
     {
-        this.name = name;
-        this.price = price;
-        this.rating = rating;
+        this.Name = Name;
+        this.Price = Price;
+        this.Rating = Rating;
     }
-//    @Override
-//    public void setname(String name)
-//    {
-//        this.name = name;
-//    }
-//    @Override
-//    public void setrating(double rating)
-//    {
-//        this.rating = rating;
-//    }
-//    @Override
-//    public void setprice(double price)
-//    {
-//        this.price = price;
-//    }
+
     @Override
     public String getname()
     {
-        return this.name;
+        return this.Name;
     }
     @Override
     public double getprice()
     {
-        return this.price;
+        return this.Price;
     }
     @Override
     public double getrating()
     {
-        return this.rating;
+        return this.Rating;
     }
 }
 class ClassThree implements Product
 {
-    private String name;
-    private double price;
-    private double rating;
-    ClassThree(String name, double price, double rating)
+    private String Name;
+    private double Price;
+    private double Rating;
+    ClassThree(String Name, double Price, double Rating)
     {
-        this.name = name;
-        this.price = price;
-        this.rating = rating;
+        this.Name = Name;
+        this.Price = Price;
+        this.Rating = Rating;
     }
-//    @Override
-//    public void setname(String name)
-//    {
-//        this.name = name;
-//    }
-//    @Override
-//    public void setrating(double rating)
-//    {
-//        this.rating = rating;
-//    }
-//    @Override
-//    public void setprice(double price)
-//    {
-//        this.price = price;
-//    }
+
     @Override
     public String getname()
     {
-        return this.name;
+        return this.Name;
     }
-
     @Override
     public double getprice()
     {
-        return this.price;
+        return this.Price;
     }
-
     @Override
     public double getrating()
     {
-        return this.rating;
+        return this.Rating;
     }
 }
+
 
 class ClassFour implements User
 {
@@ -155,16 +106,6 @@ class ClassFour implements User
         this.login = login;
         this.password = password;
     }
-//    @Override
-//    public void setlogin(String login)
-//    {
-//        this.login = login;
-//    }
-//    @Override
-//    public void setpassword(String password)
-//    {
-//        this.password = password;
-//    }
     @Override
     public String getlogin()
     {
@@ -175,7 +116,6 @@ class ClassFour implements User
     {
         return this.password;
     }
-
 }
 class ClassFive implements User
 {
@@ -186,16 +126,6 @@ class ClassFive implements User
         this.login = login;
         this.password = password;
     }
-//    @Override
-//    public void setlogin(String login)
-//    {
-//        this.login = login;
-//    }
-//    @Override
-//    public void setpassword(String password)
-//    {
-//        this.password = password;
-//    }
     @Override
     public String getlogin()
     {
@@ -216,16 +146,6 @@ class ClassSix implements User
         this.login = login;
         this.password = password;
     }
-//    @Override
-//    public void setlogin(String login)
-//    {
-//        this.login = login;
-//    }
-//    @Override
-//    public void setpassword(String password)
-//    {
-//        this.password = password;
-//    }
     @Override
     public String getlogin()
     {
@@ -240,11 +160,11 @@ class ClassSix implements User
 
 class ClassSeven implements Product, User
 {
-    String login;
-    String password;
-    String name;
-    double price;
-    double rating;
+    private String login;
+    private String password;
+    private String name;
+    private double price;
+    private double rating;
     ClassSeven(String login,String password, String name, double price, double rating)
     {
         this.login = login;
@@ -268,13 +188,11 @@ class ClassSeven implements Product, User
     {
         return this.name;
     }
-
     @Override
     public double getprice()
     {
         return this.price;
     }
-
     @Override
     public double getrating()
     {
@@ -297,6 +215,7 @@ class Main
         User five = new ClassFive("ASDFGH", "asdfgh");
         User six = new ClassSix("ZXCVBN", "zxcvbn");
 
+
         System.out.println("Введите логин пользователя, чтобы узнать, что он купил: ");
         String a = scan.next();
         System.out.println("Введите пароль: ");
@@ -316,7 +235,9 @@ class Main
         {
             end.Out(six,three);
         }
+        else
+        {
+            System.out.println("Пользователя с таким логином и паролем нет");
+        }
     }
 }
-
-
