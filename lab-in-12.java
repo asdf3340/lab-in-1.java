@@ -1,108 +1,104 @@
 import java.util.Scanner;
-interface Interface
+
+interface User
 {
+    void login();
+
     default void password()
     {
-        System.out.println("Пароль ");
-    }
-    default void login ()
-    {
-        System.out.println("Логин ");
+        System.out.println(" ");
     }
 }
-abstract class People implements Interface
+
+abstract class People implements User
 {
     String FIO;
     int years;
-    String profetion;
-    People (String FIO, int years, String profetion)
+    String work;
+    String login;
+    String password;
+
+    public People(String FIO, int years, String work, String login, String password)
     {
         this.FIO = FIO;
         this.years = years;
-        this.profetion = profetion;
-    }
-}
-class Teacher extends People
-{
-    private String login;
-    private String password;
-    Teacher(String FIO, int years, String profetion, String login, String password)
-    {
-        super(FIO,years,profetion);
-        this.password = password;
+        this.work = work;
         this.login = login;
+        this.password = password;
     }
-    String Password()
-    {
-        return this.password;
-    }
-    String Login()
-    {
-        return this.login;
-    }
+
+
+    public abstract void login();
+
+    public abstract void password();
 }
+
 class Student extends People
 {
-    private String login;
-    private String password;
-    Student(String FIO, int years, String profetion, String login, String password)
+    public Student(String FIO, int years, String work, String login, String password)
     {
-        super(FIO,years,profetion);
-        this.password = password;
-        this.login = login;
+        super(FIO, years, work, login, password);
     }
-    String Password()
-    {
-        return this.password;
+    @Override
+    public void login() {
+        System.out.println("Логин: " + this.login);
     }
-    String Login()
-    {
-        return this.login;
+
+    @Override
+    public void password() {
+        System.out.println("Пароль: " + this.password);
     }
 }
-class Main
-{
+
+class Teacher extends People {
+    public Teacher(String FIO, int years, String work, String login, String password)
+    {
+        super(FIO, years, work, login, password);
+    }
+    @Override
+    public void login()
+    {
+        System.out.println("Логин: " + this.login);
+    }
+
+    @Override
+    public void password()
+    {
+        System.out.println("Пароль: " + this.password);
+    }
+}
+
+class Main {
     public static void main(String[] args)
     {
+        Student student1 = new Student("потапов", 18, "студент", "qwerty", "QWERTY");
+        Student student2 = new Student("бевулляев", 18, "ученик", "ASDFGH", "asdfgh");
+        Teacher teacher1 = new Teacher("кочеткова", 32, "учитель", "ZXCVBN", "zxcvbn");
+        Teacher teacher2 = new Teacher("щаднева", 54, "преподаватель", "QWERTY", "qwerty");
+
         Scanner scan = new Scanner(System.in);
-        Teacher teacher1 = new Teacher("ташкинов", 60,"преподаватель","abcdefg","123456789");
-        Teacher teacher2 = new Teacher("кочеткова",38,"психолог","hijklmn","987654321");
-        Student student1 = new Student("щаднев",20,"студент","opqrstuv","12345");
-        Student student2 = new Student("фролов",18,"студент", "wxyz","54321");
-        System.out.println("Введите фамилию, чтобы узнать логин и пароль:  ");
-        String Fio = scan.next();
-        if (Fio.equals("ташкинов"))
+        System.out.print("Введите фамилию: ");
+        String a = scan.nextLine();
+
+        if (a.equals(student1.FIO))
         {
-            System.out.println("Логин: ");
-            System.out.println(teacher1.Login());
-            System.out.println("Пароль: ");
-            System.out.println(teacher1.Password());
-        }
-        else if (Fio.equals("кочеткова"))
+            student1.login();
+            student1.password();
+        } else if (a.equals(student2.FIO))
         {
-            System.out.println("Логин: ");
-            System.out.println(teacher2.Login());
-            System.out.println("Пароль: ");
-            System.out.println(teacher2.Password());
-        }
-        else if (Fio.equals("щаднев"))
+            student2.login();
+            student2.password();
+        } else if (a.equals(teacher1.FIO))
         {
-            System.out.println("Логин: ");
-            System.out.println(student1.Login());
-            System.out.println("Пароль: ");
-            System.out.println(student1.Password());
-        }
-        else if (Fio.equals("фролов"))
+            teacher1.login();
+            teacher1.password();
+        } else if (a.equals(teacher2.FIO))
         {
-            System.out.println("Логин: ");
-            System.out.println(student2.Login());
-            System.out.println("Пароль: ");
-            System.out.println(student2.Password());
-        }
-        else
+            teacher2.login();
+            teacher2.password();
+        } else
         {
             System.out.println("Такого нет");
         }
     }
 }
-
